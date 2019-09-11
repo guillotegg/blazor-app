@@ -1,0 +1,30 @@
+﻿@using System.Net.Http
+@inject HttpClient Http
+
+@using Telerik.Blazor.Components.Grid
+
+<div style="width: 1200px" class="centered">
+    <TelerikGrid Data="@items" Height="500px" Pageable="true" PageSize="100" Page="1">
+        <TelerikGridColumns>
+            <TelerikGridColumn Field="@(nameof(Item.AlbumId))" Title="Album ID" Width="10%" />
+            <TelerikGridColumn Field="@(nameof(Item.Id))" Title="Photo ID" Width="10%" />
+            <TelerikGridColumn Field="@(nameof(Item.Title))" Title="Photo Title" />
+        </TelerikGridColumns>
+    </TelerikGrid>
+</div>
+
+@code {
+
+    private IEnumerable<Item> items;
+
+    protected override async Task OnInitializedAsync() =>
+        items = await Http.GetJsonAsync<Item[]>("https://jsonplaceholder.typicode.com/photos");
+
+    public class Item
+    {
+        public int AlbumId { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+    }  
+
+}
