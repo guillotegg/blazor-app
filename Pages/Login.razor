@@ -1,0 +1,15 @@
+﻿@using blazor_app.Pages
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+
+<h3>Login</h3>
+
+<div id="my-signin2"></div>
+
+@code {    
+    [JSInvokable]
+    public static void NavigateToLogin()
+    {
+        //NavigationManager.NavigateTo("Login");                    
+    }
+}

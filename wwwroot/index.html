@@ -9,10 +9,42 @@
     <link href="css/site.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-default@latest/dist/all.css" />
     <script src="_content/telerik.ui.for.blazor.trial/js/telerik-blazor.js" defer></script>
-</head>
-<body>
-    <app>Loading...</app>
+    <!--<meta name="google-signin-client_id" content="705000172075-b67uvflpfesi6qofhtmfsm0sj18vuedp.apps.googleusercontent.com">-->
+    </head>
+    <body onload="load()">
+        <app>Loading...</app>
 
-    <script src="_framework/blazor.webassembly.js"></script>
-</body>
+        <script src="_framework/blazor.webassembly.js"></script>
+
+        <script>
+
+            /*function onSuccess(googleUser) {
+                console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                DotNet.invokeMethod('blazor-app', 'NavigateToLogin');
+            }
+
+            function onFailure(error) {
+                console.log(error);
+            }
+
+            function renderButton() {
+                gapi.signin2.render('my-signin2', {
+                    'scope': '',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                });
+            }
+
+            function load() {
+                setTimeout(function () { renderButton(); }, 2500);
+            };*/
+
+        </script>
+
+        <!--<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>-->
+    </body>
 </html>
