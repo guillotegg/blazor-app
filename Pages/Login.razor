@@ -1,15 +1,47 @@
-﻿@using blazor_app.Pages
-@inject IJSRuntime JSRuntime
+﻿@page "/"
+@using Telerik.Blazor.Components.Window
+@using Telerik.Blazor.Components.TextBox
+@using Telerik.Blazor.Components.Button
 @inject NavigationManager NavigationManager
 
-<h3>Login</h3>
+<div class="centered">
 
-<div id="my-signin2"></div>
+    <TelerikWindow Width="500px" Height="300px" Centered="true" Visible="true">
+        <TelerikWindowTitle>
+            <strong>Log In</strong>
+        </TelerikWindowTitle>
+        <TelerikWindowActions>
+            <TelerikWindowAction Name="Minimize"></TelerikWindowAction>
+            <TelerikWindowAction Name="Close"></TelerikWindowAction>
+        </TelerikWindowActions>
+        <TelerikWindowContent>           
+        <fieldset>
+            <div style="padding: 25px 50px 50px 150px">
+                <div>
+                    <TelerikTextBox Label="username" Id="txtUser" @bind-Value="user"></TelerikTextBox>
+                </div>
+                <div>
+                    <TelerikTextBox Label="password" Id="txtPassword" @bind-Value="password"></TelerikTextBox>
+                </div>
+                <br />
+                <div>
+                    <TelerikButton @onclick="login">Log In!</TelerikButton>
+                </div>
+            </div>
+        </fieldset>           
+        </TelerikWindowContent>
+    </TelerikWindow>
 
-@code {    
-    [JSInvokable]
-    public static void NavigateToLogin()
+   
+</div>
+
+@code {
+    private string user = "";
+    private string password = "";
+
+    private void login()
     {
-        //NavigationManager.NavigateTo("Login");                    
+        if (user == "demo" && password == "demo")
+            NavigationManager.NavigateTo("Grid");
     }
 }
